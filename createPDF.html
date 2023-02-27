@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <title>Create PDF</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 100px;
+            padding: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #doc {
+            width: 710px;
+            height: 950px;
+            border: none black 1px;
+            /* display: flexbox; */
+        }
+
+        .section {
+            height: 330px;
+        }
+
+        #section-one-container {
+            font-size: 12px;
+        }
+
+        #header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        #swlogo {
+            width: 40%;
+        }
+
+        #section-two-container {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+
+        #payment-info-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #payment-info {
+            display: flex;
+            padding: 10px 10px;
+        }
+
+        #payment-info-logosite {
+            align-self: center;
+        }
+
+        #logosite-text {
+            font-size: 2rem;
+        }
+
+        #payment-info-guest {
+            width: 18rem;
+        }
+
+        #qrcode {
+            width: 15rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="doc">
+        <div id="docInner">
+            <section class="section" id="section-one">
+                <div id="header">
+                    <h1 id="pass-number-title">Pass Number: <span id="pass-number"></span></h1>
+                    <img id="swlogo" src="swlogo.png" alt="Swiss Air">
+                </div>
+                <p>Dear <span id="first-name"></span> <span id="surname"></span>
+                </p>
+                <p>Thank you for using Swiss Air Lounge service. Please save this pass in a mobile device and scan the
+                    QR
+                    code below
+                    at the lounge access located in Terminal 3 at
+                    Zurich International Airport. You will have access to the lounge 48 hours before your scheduled
+                    flight
+                    time. If
+                    you do not have a mobile device go to the ticketing counter and present your ID along with this
+                    document
+                    and a
+                    customer service agent will print a pass for you. For further inquiries send an email to
+                    customerservice@swissair.com.<br><br>
+                    Thank you for choosing Swiss Air Lounge.
+                </p>
+            </section>
+            <section class="section" id="section-two">
+                <div id="section-two-container">
+
+                    <div id="payment-info-wrapper">
+                        <div id="payment-info">
+                            <div id="payment-info-guest">
+                                <p>Surname: <span id="surname-payment-info"></span></p>
+                                <p>First Name: <span id="first-name-payment-info"></span></p>
+                                <p>Email: <span id="email"></span></p>
+                            </div>
+                            <div id="payment-info-details">
+                                <p>Guest Pass: 70 SFr</p>
+                                <p>Booking Fee: 12 SFr</p>
+                                <p>Total: 82 SFr</p>
+                            </div>
+                        </div>
+                        <div id="payment-info-logosite">
+                            <h1 id="logosite-text">www.swissair.com</h1>
+                        </div>
+
+
+                    </div>
+
+                    <div id="qr-code-container">
+                    </div>
+                </div>
+            </section>
+            <section class="section" id="section-three">
+                <p><b>IMPORTANT INFORMATION YOU SHOULD READ</b>
+                    <br>
+                    Please note that Swiss Air lounge does not provide assigned seating in the public areas. Customers
+                    aged 16 and under require a chaperon with boarding passes of the same flight and destination.
+                </p>
+                <p><b>Terms and Conditions</b>
+                    <br>
+                    This pass is of a standard fare - not refundable fare type. Swiss International Air Lines AG,
+                    colloquially known as SWISS, is the flag carrier of Switzerland, operating scheduled services in
+                    Europe and to North America, South America, Africa and Asia. Zurich Airport serves as its sole hub
+                    and Geneva Airport as a focus city.
+                </p>
+                <p>
+                    Issued subject to Swiss Air, which can be viewed here www.swissair.com/conditions.
+                </p>
+            </section>
+        </div>
+    </div>
+    <script src="qrcode.min.js"></script>
+    <script src="autofillPDF.js"></script>
+    <script src="createPDF.js"></script>
+</body>
+
+</html>
